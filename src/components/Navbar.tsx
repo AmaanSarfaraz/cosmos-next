@@ -1,11 +1,12 @@
 "use client";
 
+import React, { useEffect, useState } from "react";
 import Link from "next/link";
-import { useEffect, useState } from "react";
-import MainMenu from "./MainMenu";
+import { usePathname } from "next/navigation";
 
 const Navbar: React.FC = () => {
   const [navbar, setNavbar] = useState<boolean>(false);
+  const pathname = usePathname();
 
   const changeBackground = () => {
     if (typeof window !== "undefined" && window.scrollY >= 10) {
@@ -32,11 +33,56 @@ const Navbar: React.FC = () => {
                 CosmosHouse
               </Link>
 
+              {/* Inlined MainMenu */}
               <div className="header-menu">
                 <div className="header-menu__content">
-                  <MainMenu style="text-white" />
+                  <nav className="menu js-navList">
+                    <ul className="menu__nav text-white -is-active">
+                      <li>
+                        <Link href="/">
+                          <span className="mr-10">Home</span>
+                        </Link>
+                      </li>
+                      <li>
+                        <Link href="#">
+                          <span className="mr-10">About US</span>
+                        </Link>
+                      </li>
+                      <li>
+                        <Link href="/suppliers">
+                          <span className="mr-10">Our Suppliers</span>
+                        </Link>
+                      </li>
+                      <li>
+                        <Link href="#">
+                          <span className="mr-10">Hawkins</span>
+                        </Link>
+                      </li>
+                      <li>
+                        <Link href="#">
+                          <span className="mr-10">Sunflame</span>
+                        </Link>
+                      </li>
+                      <li>
+                        <Link href="#">
+                          <span className="mr-10">Hattich</span>
+                        </Link>
+                      </li>
+                      <li>
+                        <Link href="/contact">
+                          <span className="mr-10">Panasonic</span>
+                        </Link>
+                      </li>
+                      <li>
+                        <Link href="/contact">
+                          <span className="mr-10">Contact Us</span>
+                        </Link>
+                      </li>
+                    </ul>
+                  </nav>
                 </div>
               </div>
+              {/* End inlined MainMenu */}
             </div>
           </div>
 

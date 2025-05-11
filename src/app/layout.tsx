@@ -12,6 +12,7 @@ import "swiper/css/pagination";
 import "swiper/css/navigation";
 import "swiper/css/scrollbar";
 import "swiper/css/effect-cards";
+import Navbar from "@/components/Navbar";
 
 if (typeof window !== "undefined") {
   require("bootstrap/dist/js/bootstrap");
@@ -46,6 +47,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
       </head>
       <body>
         <main>
+          <Navbar />
           {children}
           <ScrollToTop />
         </main>

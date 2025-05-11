@@ -1,6 +1,6 @@
 import React from "react";
 
-const CallToActions = () => {
+const CallToActions: React.FC = () => {
   return (
     <section className="layout-pt-md layout-pb-md bg-dark-2">
       <div className="container">
