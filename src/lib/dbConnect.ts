@@ -1,11 +1,29 @@
-import { PrismaClient } from "@prisma/client";
+import mongoose from "mongoose";
 
-const globalForPrisma = global as unknown as {
-  prisma: PrismaClient | undefined;
+type ConnectionObject = {
+  isConnected?: number; // check for if the database is already connected, so that app would not choke
 };
 
-const prisma = globalForPrisma.prisma ?? new PrismaClient();
+const connection: ConnectionObject = {};
 
-if (process.env.NODE_ENV !== "production") globalForPrisma.prisma = prisma;
+async function connectDB(): Promise<void> {
+  if (connection.isConnected) {
+    console.log("database is already connected");
+    return;
+  }
 
-export default prisma;
+  try {
+    const connectionInstance = await mongoose.connect(
+      process.env.MONGODB_URI || "",
+      {}
+    );
+
+    connection.isConnected = connectionInstance.connections[0].readyState;
+    console.log("Database connected successfully");
+  } catch (error) {
+    console.log("Database connection failed", error);
+    process.exit(1);
+  }
+}
+
+export default connectDB;

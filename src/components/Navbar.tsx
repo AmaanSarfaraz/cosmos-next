@@ -39,43 +39,43 @@ const Navbar: React.FC = () => {
                   <nav className="menu js-navList">
                     <ul className="menu__nav text-white -is-active">
                       <li>
-                        <Link href="/">
+                        <Link href="/" className="text-white">
                           <span className="mr-10">Home</span>
                         </Link>
                       </li>
                       <li>
-                        <Link href="#">
+                        <Link href="about-us" className="text-white">
                           <span className="mr-10">About US</span>
                         </Link>
                       </li>
                       <li>
-                        <Link href="/suppliers">
+                        <Link href="/contact-us" className="text-white">
+                          <span className="mr-10">Contact Us</span>
+                        </Link>
+                      </li>
+                      <li>
+                        <Link href="/suppliers" className="text-white">
                           <span className="mr-10">Our Suppliers</span>
                         </Link>
                       </li>
                       <li>
-                        <Link href="#">
+                        <Link href="#" className="text-white">
                           <span className="mr-10">Hawkins</span>
                         </Link>
                       </li>
                       <li>
-                        <Link href="#">
+                        <Link href="#" className="text-white">
                           <span className="mr-10">Sunflame</span>
                         </Link>
                       </li>
                       <li>
-                        <Link href="#">
+                        <Link href="#" className="text-white">
                           <span className="mr-10">Hattich</span>
                         </Link>
                       </li>
                       <li>
-                        <Link href="/contact">
+                        <Link href="#" className="text-white ">
                           <span className="mr-10">Panasonic</span>
-                        </Link>
-                      </li>
-                      <li>
-                        <Link href="/contact">
-                          <span className="mr-10">Contact Us</span>
                         </Link>
                       </li>
                     </ul>
@@ -90,8 +90,8 @@ const Navbar: React.FC = () => {
             <div className="d-flex items-center">
               <div className="d-flex items-center ml-20 is-menu-opened-hide md:d-none">
                 <Link
-                  href="/login"
-                  className="button px-40 fw-400 text-18 -white bg-white h-50 text-dark-1"
+                  href="/admin/sign-in"
+                  className="button px-40 py-10 fw-400 text-18 -white bg-white h-50 text-dark-1"
                 >
                   Sign In
                 </Link>
